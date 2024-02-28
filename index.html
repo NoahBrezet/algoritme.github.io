@@ -1,7 +1,71 @@
 <html>
 <body>
-dit is mijn website
-hello world
+<script>
+// assign voor het vragen
+var amount;
+var max;
 
+// vrage voor hoeveel willekeurige getallen en vragen voor de maximum.
+window.alert("hoeveel willekeurige getallen wil je");
+amount = Number(window.prompt('Enter a value for amount'));
+window.alert("hoe hoog wilt u dat de maximale nummer is");
+max = Number(window.prompt('Enter a value for max'));
+max = max + 1;
+
+// assign voor willekeurige getallen genereren
+var rand = new Array (amount);
+var n;
+
+// willekeurige getallen genereren
+for (n = 0; n <= amount - 1; n++) {
+    rand[n] = Math.floor(Math.random() * max);
+}
+
+// assign voor insurt sort
+var var_switch;
+var x;
+var done;
+
+// insurt sort
+for (x = 0; x <= amount - 2; x++) {
+    done = 0;
+    n = x;
+    while (rand[n] > rand[n + 1] && done == 0) {
+        var_switch = rand[n];
+        rand[n] = rand[n + 1];
+        rand[n + 1] = var_switch;
+        if (n > 0) {
+            n = n - 1;
+        } else {
+            done = 1;
+        }
+    }
+}
+
+// assign voor linear search
+var search;
+
+// loop waar je niet uit kant
+done = 0;
+while (done == 0) {
+x = 0;
+
+// vrage voor linear search
+window.alert("welk cijfer wil je zoeken");
+search = Number(window.prompt('Enter a value for search'));
+
+// linear search
+for (n = 0; n <= amount - 1; n++) {
+      if (rand[n] == search) {
+          x = x + 1;
+      }
+  }
+  if (x == 0) {
+     window.alert("je cijfer zit er niet in");
+  } else {
+     window.alert("je cijfer zit er " + x + " keer er in");
+  }
+ }
+</script>
 </body>
 </html>
